@@ -1,0 +1,40 @@
+{
+  "games": {
+    "ticTacToe": {
+      "wins": 0,
+      "losses": 0
+    },
+    "numberGuessing": {
+      "wins": 0,
+      "losses": 0
+    },
+    "reactionTest": {
+      "wins": 0,
+      "losses": 0
+    },
+    "rockPaperScissors": {
+      "wins": 0,
+      "losses": 1
+    },
+    "memory": {
+      "wins": 0,
+      "losses": 0
+    },
+    "mathQuiz": {
+      "wins": 1,
+      "losses": 0
+    },
+    "snake": {
+      "wins": 0,
+      "losses": 0
+    },
+    "wordGuessing": {
+      "wins": 0,
+      "losses": 0
+    },
+    "colorMemory": {
+      "wins": 0,
+      "losses": 0
+    }
+  }
+}
