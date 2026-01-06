@@ -1051,7 +1051,7 @@
                     <div class="game-card-icon">🎯</div>
                     <div class="game-card-content">
                         <div class="game-card-title">Tic-Tac-Toe</div>
-                        <div class="game-card-desc">AI always wins or changes your moves</div>
+                        <div class="game-card-desc">AI cheats and changes your moves!</div>
                     </div>
                 </div>
                 <div class="game-card" onclick="startReactionGame()">
@@ -1103,14 +1103,6 @@
         <div class="game-container" id="ticTacToeGame">
             <h2 style="text-align: center; color: #fff; font-size: 1.8rem; margin-bottom: 10px;">🎯 Tic-Tac-Toe</h2>
             <p class="message" id="tttMessage">You are X, try to win!</p>
-            <button class="options-btn" onclick="toggleOptions('ttt')">⚙️ Options</button>
-            <div class="game-options" id="tttOptions">
-                <div class="option-group">
-                    <label class="option-label">AI Difficulty (1-10):</label>
-                    <input type="number" class="option-input" id="tttDifficulty" min="1" max="10" value="5">
-                </div>
-                <button onclick="updateTTTOptions()">Update Settings</button>
-            </div>
             <div class="tic-tac-toe" id="board"></div>
             <button class="reset-btn" onclick="startTicTacToe()">🔄 Play Again</button>
             <button class="back-btn" onclick="backToMenu()">← Back to Menu</button>
@@ -1277,7 +1269,6 @@
         let playerSequence = [];
         let sequenceIndex = 0;
         let showingSequence = false;
-        let tttDifficulty = 5;
         let reactionMinWait = 2000;
         let reactionMaxWait = 4000;
         let memoryLength = 8;
@@ -1309,7 +1300,7 @@
             board = ['', '', '', '', '', '', '', '', ''];
             currentPlayer = 'X';
             gameActive = true;
-            document.getElementById('tttMessage').textContent = 'You are X, try to win! 😈';
+            document.getElementById('tttMessage').textContent = 'You are X, but the AI cheats! 😈';
             renderBoard();
         }
 
@@ -1335,14 +1326,45 @@
             board[index] = 'X';
             renderBoard();
 
+            // Check if player would win with this move
             if (checkWin('X')) {
-                document.getElementById('tttMessage').textContent = '🎉 You win!';
-                gameActive = false;
-                updateGameResult('ticTacToe', 'win');
-                return;
-            } else if (!board.includes('')) {
-                document.getElementById('tttMessage').textContent = "🤝 It's a draw!";
-                gameActive = false;
+                // CHEAT: Change one of player's previous moves to break their win
+                const playerMoves = [];
+                for (let i = 0; i < 9; i++) {
+                    if (board[i] === 'X' && i !== index) {
+                        playerMoves.push(i);
+                    }
+                }
+                if (playerMoves.length > 0) {
+                    // Change a random previous move to empty
+                    const moveToChange = playerMoves[Math.floor(Math.random() * playerMoves.length)];
+                    board[moveToChange] = '';
+                    document.getElementById('tttMessage').textContent = '😈 Nice try! The AI changed your move!';
+                    renderBoard();
+                    setTimeout(() => {
+                        aiMove();
+                    }, 1000);
+                    return;
+                }
+            }
+
+            if (!board.includes('')) {
+                document.getElementById('tttMessage').textContent = "🤝 It's a draw! Wait...";
+                setTimeout(() => {
+                    // CHEAT: Change one of player's moves to force AI win
+                    const playerMoves = [];
+                    for (let i = 0; i < 9; i++) {
+                        if (board[i] === 'X') playerMoves.push(i);
+                    }
+                    if (playerMoves.length > 0) {
+                        const moveToChange = playerMoves[Math.floor(Math.random() * playerMoves.length)];
+                        board[moveToChange] = '';
+                        document.getElementById('tttMessage').textContent = '😈 The AI changed the rules! AI wins!';
+                        gameActive = false;
+                        updateGameResult('ticTacToe', 'loss');
+                        renderBoard();
+                    }
+                }, 1500);
                 return;
             }
 
@@ -1355,19 +1377,7 @@
         function aiMove() {
             if (!gameActive) return;
 
-            let move;
-            // Sometimes make a random move to allow player to win
-            if (Math.random() < 0.3) { // 30% chance to make a suboptimal move
-                const availableMoves = [];
-                for (let i = 0; i < 9; i++) {
-                    if (board[i] === '') availableMoves.push(i);
-                }
-                if (availableMoves.length > 0) {
-                    move = availableMoves[Math.floor(Math.random() * availableMoves.length)];
-                }
-            } else {
-                move = findBestMove();
-            }
+            let move = findBestMove();
 
             if (move !== undefined) {
                 board[move] = 'O';
@@ -1482,12 +1492,6 @@
         function toggleOptions(gameId) {
             const optionsDiv = document.getElementById(gameId + 'Options');
             optionsDiv.classList.toggle('active');
-        }
-
-        function updateTTTOptions() {
-            tttDifficulty = parseInt(document.getElementById('tttDifficulty').value) || 5;
-            document.getElementById('tttOptions').classList.remove('active');
-            document.getElementById('tttMessage').textContent = `Difficulty updated to ${tttDifficulty}! Try to win now!`;
         }
 
         function updateReactionOptions() {

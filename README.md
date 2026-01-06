@@ -7,7 +7,7 @@ A collection of impossible-to-win games built with Node.js and Express. Features
 ## 🚀 Features
 
 - **User Management**: Save and track user names
-- **Multiple Games**: Snake, Memory Game, Rock Paper Scissors, Tic-Tac-Toe, Number Guessing, Reaction Test
+- **Multiple Games**: Snake, Memory Game, Tic-Tac-Toe, Math Quiz, Name Guessing, Color Memory, Reaction Test
 - **Dark Theme**: Modern glassmorphism design
 - **Restart Functionality**: Restart any game at any time
 - **Server-side Storage**: User data persisted on the server
@@ -41,10 +41,11 @@ A collection of impossible-to-win games built with Node.js and Express. Features
 ## 🎮 Available Games
 
 - **🐍 Snake**: Classic snake game with cheating AI
-- **🧠 Memory Game**: Match pairs of cards
-- **✂️ Rock Paper Scissors**: Beat the computer (or not)
-- **❌ Tic-Tac-Toe**: Impossible to win against the AI
-- **🔢 Number Guessing**: Guess the number (it changes!)
+- **🧠 Memory Game**: Match pairs of cards (sequence changes)
+- **❌ Tic-Tac-Toe**: AI cheats and changes your moves - truly impossible!
+- **🧮 Math Quiz**: Math problems with wrong answers
+- **📝 Name Guessing**: Guess names with hints (first, middle, last letters)
+- **🎨 Color Memory**: Repeat color sequences (sequences change)
 - **⚡ Reaction Test**: Test your reflexes (times are rigged)
 
 ## 🏗️ Project Structure
