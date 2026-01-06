@@ -1051,35 +1051,35 @@
                     <div class="game-card-icon">🎯</div>
                     <div class="game-card-content">
                         <div class="game-card-title">Tic-Tac-Toe</div>
-                        <div class="game-card-desc">AI cheats and changes your moves!</div>
+                        <div class="game-card-desc">Perfect AI - mathematically unbeatable!</div>
                     </div>
                 </div>
                 <div class="game-card" onclick="startReactionGame()">
                     <div class="game-card-icon">⚡</div>
                     <div class="game-card-content">
                         <div class="game-card-title">Reaction Test</div>
-                        <div class="game-card-desc">Green disappears before you click</div>
+                        <div class="game-card-desc">3-6 second waits make perfect timing impossible</div>
                     </div>
                 </div>
                 <div class="game-card" onclick="startMemoryGame()">
                     <div class="game-card-icon">🧠</div>
                     <div class="game-card-content">
                         <div class="game-card-title">Memory Game</div>
-                        <div class="game-card-desc">Sequence changes mid-game</div>
+                        <div class="game-card-desc">Sequences get longer and faster each level</div>
                     </div>
                 </div>
                 <div class="game-card" onclick="startMathQuiz()">
                     <div class="game-card-icon">🧮</div>
                     <div class="game-card-content">
                         <div class="game-card-title">Math Quiz</div>
-                        <div class="game-card-desc">Answers change after you choose</div>
+                        <div class="game-card-desc">Complex calculations up to 50 - very challenging</div>
                     </div>
                 </div>
                 <div class="game-card" onclick="startSnakeGame()">
                     <div class="game-card-icon">🐍</div>
                     <div class="game-card-content">
                         <div class="game-card-title">Snake Game</div>
-                        <div class="game-card-desc">Controls don't work as expected</div>
+                        <div class="game-card-desc">20x20 board at high speed - impossible to master</div>
                     </div>
                 </div>
                 <div class="game-card" onclick="startWordGame()">
@@ -1093,7 +1093,7 @@
                     <div class="game-card-icon">🎨</div>
                     <div class="game-card-content">
                         <div class="game-card-title">Color Memory</div>
-                        <div class="game-card-desc">Colors change after you click</div>
+                        <div class="game-card-desc">Long sequences shown at high speed</div>
                     </div>
                 </div>
             </div>
@@ -1116,11 +1116,11 @@
             <div class="game-options" id="reactionOptions">
                 <div class="option-group">
                     <label class="option-label">Min Wait Time (ms):</label>
-                    <input type="number" class="option-input" id="reactionMinWait" min="500" max="5000" value="2000">
+                    <input type="number" class="option-input" id="reactionMinWait" min="500" max="5000" value="3000">
                 </div>
                 <div class="option-group">
                     <label class="option-label">Max Wait Time (ms):</label>
-                    <input type="number" class="option-input" id="reactionMaxWait" min="1000" max="8000" value="4000">
+                    <input type="number" class="option-input" id="reactionMaxWait" min="1000" max="8000" value="6000">
                 </div>
                 <button onclick="updateReactionOptions()">Update Settings</button>
             </div>
@@ -1163,7 +1163,7 @@
             <div class="game-options" id="mathOptions" style="display: block;">
                 <div class="option-group">
                     <label class="option-label">Max Number:</label>
-                    <input type="number" class="option-input" id="mathMaxNum" min="5" max="50" value="20">
+                    <input type="number" class="option-input" id="mathMaxNum" min="5" max="50" value="50">
                 </div>
                 <div class="option-group">
                     <label class="option-label">Operations:</label>
@@ -1189,11 +1189,11 @@
             <div class="game-options" id="snakeOptions">
                 <div class="option-group">
                     <label class="option-label">Game Speed:</label>
-                    <input type="number" class="option-input" id="snakeSpeed" min="50" max="500" value="200">
+                    <input type="number" class="option-input" id="snakeSpeed" min="50" max="500" value="120">
                 </div>
                 <div class="option-group">
                     <label class="option-label">Board Size:</label>
-                    <input type="number" class="option-input" id="snakeSize" min="10" max="25" value="15">
+                    <input type="number" class="option-input" id="snakeSize" min="10" max="25" value="20">
                 </div>
                 <button onclick="updateSnakeOptions()">Update Settings</button>
             </div>
@@ -1240,11 +1240,11 @@
             <div class="game-options" id="colorOptions">
                 <div class="option-group">
                     <label class="option-label">Sequence Length:</label>
-                    <input type="number" class="option-input" id="colorLength" min="2" max="8" value="4">
+                    <input type="number" class="option-input" id="colorLength" min="2" max="8" value="6">
                 </div>
                 <div class="option-group">
                     <label class="option-label">Show Speed (ms):</label>
-                    <input type="number" class="option-input" id="colorSpeed" min="300" max="1500" value="800">
+                    <input type="number" class="option-input" id="colorSpeed" min="300" max="1500" value="600">
                 </div>
                 <button onclick="updateColorOptions()">Update Settings</button>
             </div>
@@ -1269,18 +1269,18 @@
         let playerSequence = [];
         let sequenceIndex = 0;
         let showingSequence = false;
-        let reactionMinWait = 2000;
-        let reactionMaxWait = 4000;
-        let memoryLength = 8;
-        let memorySpeed = 600;
-        let mathMaxNum = 20;
+        let reactionMinWait = 3000;
+        let reactionMaxWait = 6000;
+        let memoryLength = 12;
+        let memorySpeed = 400;
+        let mathMaxNum = 50;
         let mathOperations = ['+', '-', '*'];
-        let snakeSpeed = 200;
-        let snakeSize = 15;
+        let snakeSpeed = 120;
+        let snakeSize = 20;
         let wordLength = 5;
         let wordMaxGuesses = 6;
-        let colorLength = 4;
-        let colorSpeed = 800;
+        let colorLength = 6;
+        let colorSpeed = 600;
 
         function startGames() {
             playerName = document.getElementById('playerName').value.trim();
@@ -1300,7 +1300,7 @@
             board = ['', '', '', '', '', '', '', '', ''];
             currentPlayer = 'X';
             gameActive = true;
-            document.getElementById('tttMessage').textContent = 'You are X, but the AI cheats! 😈';
+            document.getElementById('tttMessage').textContent = 'You are X, but AI is perfect! 😈';
             renderBoard();
         }
 
@@ -1326,45 +1326,14 @@
             board[index] = 'X';
             renderBoard();
 
-            // Check if player would win with this move
             if (checkWin('X')) {
-                // CHEAT: Change one of player's previous moves to break their win
-                const playerMoves = [];
-                for (let i = 0; i < 9; i++) {
-                    if (board[i] === 'X' && i !== index) {
-                        playerMoves.push(i);
-                    }
-                }
-                if (playerMoves.length > 0) {
-                    // Change a random previous move to empty
-                    const moveToChange = playerMoves[Math.floor(Math.random() * playerMoves.length)];
-                    board[moveToChange] = '';
-                    document.getElementById('tttMessage').textContent = '😈 Nice try! The AI changed your move!';
-                    renderBoard();
-                    setTimeout(() => {
-                        aiMove();
-                    }, 1000);
-                    return;
-                }
-            }
-
-            if (!board.includes('')) {
-                document.getElementById('tttMessage').textContent = "🤝 It's a draw! Wait...";
-                setTimeout(() => {
-                    // CHEAT: Change one of player's moves to force AI win
-                    const playerMoves = [];
-                    for (let i = 0; i < 9; i++) {
-                        if (board[i] === 'X') playerMoves.push(i);
-                    }
-                    if (playerMoves.length > 0) {
-                        const moveToChange = playerMoves[Math.floor(Math.random() * playerMoves.length)];
-                        board[moveToChange] = '';
-                        document.getElementById('tttMessage').textContent = '😈 The AI changed the rules! AI wins!';
-                        gameActive = false;
-                        updateGameResult('ticTacToe', 'loss');
-                        renderBoard();
-                    }
-                }, 1500);
+                document.getElementById('tttMessage').textContent = '🎉 You win!';
+                gameActive = false;
+                updateGameResult('ticTacToe', 'win');
+                return;
+            } else if (!board.includes('')) {
+                document.getElementById('tttMessage').textContent = "🤝 It's a draw!";
+                gameActive = false;
                 return;
             }
 
@@ -1638,14 +1607,11 @@
             sequenceIndex++;
 
             if (sequenceIndex >= memorySequence.length) {
-                document.getElementById('memoryMessage').textContent = '😈 So close! But the last one changed!';
-                memorySequence[memorySequence.length - 1] = (memorySequence[memorySequence.length - 1] + Math.floor(Math.random() * 8) + 1) % 9;
-                document.querySelectorAll('.memory-cell').forEach(cell => {
-                    cell.classList.add('disabled');
-                });
+                document.getElementById('memoryMessage').textContent = '🎉 Correct! Next level!';
+                memoryLength++;
                 setTimeout(() => {
-                    document.getElementById('repeatMemoryBtn').style.display = 'inline-block';
-                }, 1000);
+                    startMemoryGame();
+                }, 1500);
             }
         }
 

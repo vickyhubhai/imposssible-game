@@ -40,13 +40,13 @@ A collection of impossible-to-win games built with Node.js and Express. Features
 
 ## 🎮 Available Games
 
-- **🐍 Snake**: Classic snake game with cheating AI
-- **🧠 Memory Game**: Match pairs of cards (sequence changes)
-- **❌ Tic-Tac-Toe**: AI cheats and changes your moves - truly impossible!
-- **🧮 Math Quiz**: Math problems with wrong answers
+- **🐍 Snake**: Large board (20x20) with high speed - nearly impossible to survive long
+- **🧠 Memory Game**: Sequences get progressively longer and faster
+- **❌ Tic-Tac-Toe**: Perfect AI using minimax - mathematically unbeatable!
+- **🧮 Math Quiz**: Complex calculations with numbers up to 50
 - **📝 Name Guessing**: Guess names with hints (first, middle, last letters)
-- **🎨 Color Memory**: Repeat color sequences (sequences change)
-- **⚡ Reaction Test**: Test your reflexes (times are rigged)
+- **🎨 Color Memory**: Long color sequences shown quickly
+- **⚡ Reaction Test**: Extreme wait times (3-6 seconds) make timing impossible
 
 ## 🏗️ Project Structure
 
