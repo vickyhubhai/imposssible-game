@@ -1298,10 +1298,8 @@
                 return;
             }
 
-            // Hide name section and show game selection
-            document.querySelector('.name-section').classList.remove('active');
-            document.querySelector('.game-selection').classList.add('active');
-            document.getElementById('displayName').textContent = playerName;
+            // Redirect to URL with user parameter
+            window.location.href = `/?user=${encodeURIComponent(playerName)}`;
         }
 
         function startTicTacToe() {
